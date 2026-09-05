@@ -10,7 +10,7 @@ Static site, no build step. Proves four things:
 ## Before deploying
 
 - The GA4 measurement ID (`G-8F7HH8QT96`) is set in `start/index.html` and `404.html`. For the real site, swap in the client's ID.
-- In HubSpot: create two single-line text contact properties, `agent_slug` and `lo_slug`, then a form that includes both as hidden fields. The embed code goes in `start/index.html`: the `hs-form-frame` div inside `#hs-form`, and the script tag at the end of the body. The demo is wired to portal `246633875` on `na2`.
+- In HubSpot: create two single-line text contact properties, `agent_slug` and `lo_slug`, then a form that includes both as hidden fields. The embed's `hs-form-frame` div goes inside `#hs-form` in `start/index.html`, with the embed script URL in its `data-src` attribute. `main.js` loads that script once the headline is final, so the form's network chain doesn't delay the first paint. The demo is wired to portal `246633875` on `na2`.
 - The new HubSpot form editor renders the form in an iframe, so `main.js` sets the hidden fields through HubSpot's `HubspotFormsV4` client API on the `hs-form-event:on-ready` event, using the contact-prefixed property references `0-1/agent_slug` and `0-1/lo_slug`. The legacy inline embed (`hbspt.forms.create`) is still handled through the `hsFormCallback` message path.
 - Edit `data/agents.json` to add agents and loan officers. Keys are lowercase slugs. The default LO's first name and phone are also hardcoded in the HTML as the no-JS fallback.
 - `/assets/*` is served with a one-year immutable cache (see `_headers`). After editing `style.css` or `main.js`, bump the `?v=` on their references in the three HTML files or browsers keep the old copy.

@@ -81,4 +81,15 @@ fetch("/data/agents.json")
 
     const hrefs = { sms: "sms:" + lo.phone, tel: "tel:" + lo.phone, calendar: lo.calendar };
     document.querySelectorAll("[data-lo-href]").forEach(a => { a.href = hrefs[a.dataset.loHref]; });
-  });
+  })
+  .finally(loadHubSpot);
+
+// the embed loads after the headline is final so its script chain
+// doesn't compete with the first paint on slow connections
+function loadHubSpot() {
+  const frame = document.querySelector(".hs-form-frame[data-src]");
+  if (!frame) return;
+  const s = document.createElement("script");
+  s.src = frame.dataset.src;
+  document.body.appendChild(s);
+}

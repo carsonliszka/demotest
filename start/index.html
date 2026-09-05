@@ -6,7 +6,8 @@
   <title>Start your application</title>
   <meta name="description" content="Start your mortgage application.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%231d4ed8'/></svg>">
-  <link rel="stylesheet" href="/assets/style.css?v=6">
+  <link rel="stylesheet" href="/assets/style.css?v=7">
+  <link rel="preload" href="/data/agents.json" as="fetch" crossorigin>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F7HH8QT96"></script>
   <script>
@@ -16,7 +17,7 @@
     gtag('config', 'G-8F7HH8QT96');
   </script>
 
-  <script src="/assets/main.js?v=6" defer></script>
+  <script src="/assets/main.js?v=7" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -62,7 +63,7 @@
       <h2>Start your application</h2>
       <p class="muted">A few short questions. <span data-slot="lo-first">Mike</span> will follow up with next steps.</p>
       <div id="hs-form">
-        <div class="hs-form-frame" data-region="na2" data-form-id="fe771735-1dd2-4f55-8a9e-8c60c37d8885" data-portal-id="246633875"></div>
+        <div class="hs-form-frame" data-region="na2" data-form-id="fe771735-1dd2-4f55-8a9e-8c60c37d8885" data-portal-id="246633875" data-src="https://js-na2.hsforms.net/forms/embed/246633875.js"></div>
       </div>
     </section>
   </main>
@@ -72,7 +73,5 @@
       <p>&copy; 2026 Acme Home Loans. Demo build on Cloudflare Pages.</p>
     </div>
   </footer>
-
-  <script src="https://js-na2.hsforms.net/forms/embed/246633875.js" defer></script>
 </body>
 </html>
