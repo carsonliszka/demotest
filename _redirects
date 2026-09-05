@@ -1,0 +1,8 @@
+# vanity links, one per agent. 302 because these change
+/jane     /start?agent=jane&lo=mike     302
+/marco    /start?agent=marco&lo=sarah   302
+
+# old urls from the previous site. 301 so search equity carries over
+/apply-now.html      /start              301
+/about-us            /about              301
+/contact.html        /contact            301

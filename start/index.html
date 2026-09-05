@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start your application</title>
+  <meta name="description" content="Start your mortgage application.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%231d4ed8'/></svg>">
+  <link rel="stylesheet" href="/assets/style.css?v=6">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F7HH8QT96"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8F7HH8QT96');
+  </script>
+
+  <script src="/assets/main.js?v=6" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="/" class="brand">Acme Home Loans</a>
+      <span class="note">Secure application</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- names below are the no-js fallback (defaults.lo in agents.json); main.js overwrites them -->
+    <section class="hero">
+      <div>
+        <p class="eyebrow">
+          <span data-variant="agent" class="badge is-hidden">Referred by <span data-slot="agent-full"></span></span>
+          <span data-variant="generic" class="badge">Home loan application</span>
+        </p>
+        <h1>
+          <span data-variant="agent" class="is-hidden"><span data-slot="agent-first"></span> sent you here. <span data-slot="lo-first">Mike</span> will handle your application.</span>
+          <span data-variant="generic">Let's get your application started. <span data-slot="lo-first">Mike</span> will handle it.</span>
+        </h1>
+        <p class="lead">Takes about five minutes. No credit pull until you say so.</p>
+
+        <nav class="ctas">
+          <a href="#apply" data-event="apply_click" class="cta">Apply</a>
+          <a href="sms:+15555550201" data-event="text_click" data-lo-href="sms">Text <span data-slot="lo-first">Mike</span></a>
+          <a href="tel:+15555550201" data-event="call_click" data-lo-href="tel">Call <span data-slot="lo-first">Mike</span></a>
+          <a href="https://calendar.app.google/EXAMPLE" data-event="book_click" data-lo-href="calendar" target="_blank" rel="noopener">Book a call</a>
+        </nav>
+      </div>
+
+      <aside class="card lo-card" aria-label="Your loan officer">
+        <div class="avatar" data-slot="lo-initials">MC</div>
+        <div>
+          <p class="lo-label">Your loan officer</p>
+          <p class="lo-name" data-slot="lo-full">Mike Chen</p>
+          <a class="lo-phone" href="tel:+15555550201" data-lo-href="tel" data-event="call_click" data-slot="lo-phone">(555) 555-0201</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="apply" class="card">
+      <h2>Start your application</h2>
+      <p class="muted">A few short questions. <span data-slot="lo-first">Mike</span> will follow up with next steps.</p>
+      <div id="hs-form">
+        <div class="hs-form-frame" data-region="na2" data-form-id="fe771735-1dd2-4f55-8a9e-8c60c37d8885" data-portal-id="246633875"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 Acme Home Loans. Demo build on Cloudflare Pages.</p>
+    </div>
+  </footer>
+
+  <script src="https://js-na2.hsforms.net/forms/embed/246633875.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloudflare Pages demo</title>
+  <meta name="description" content="A working demo of personalized agent links, HubSpot attribution, redirects, and GA4 events on Cloudflare Pages.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%231d4ed8'/></svg>">
+  <link rel="stylesheet" href="/assets/style.css?v=6">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="/" class="brand">Acme Home Loans</a>
+      <span class="note">Demo tour</span>
+    </div>
+  </header>
+
+  <main class="wrap stack">
+    <div>
+      <p class="eyebrow"><span class="badge">Live demo</span></p>
+      <h1>The four things you asked about, working.</h1>
+      <p class="lead">This is a small live site built the same way the real one would be. Plain HTML on Cloudflare Pages, HubSpot for the form, Google Analytics for tracking. Click through the four steps below.</p>
+    </div>
+
+    <section class="card step">
+      <div class="num">1</div>
+      <div>
+        <h2>Every agent gets their own link</h2>
+        <p class="muted">Open one and the page greets the borrower with the agent's name and assigns their loan officer. The headline, the badge, and the Text and Call buttons all change.</p>
+        <ul class="routes">
+          <li><a href="/start?agent=jane&amp;lo=mike">/start?agent=jane&amp;lo=mike</a><span>Jane referred, Mike handles it</span></li>
+          <li><a href="/start?agent=marco&amp;lo=sarah">/start?agent=marco&amp;lo=sarah</a><span>Marco referred, Sarah handles it</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card step">
+      <div class="num">2</div>
+      <div>
+        <h2>A wrong link never shows a broken page</h2>
+        <p class="muted">A misspelled or missing name falls back to the generic page and the default loan officer. The misspelling is still recorded, so attribution survives a typo.</p>
+        <ul class="routes">
+          <li><a href="/start?agent=nobody&amp;lo=mike">/start?agent=nobody&amp;lo=mike</a><span>unknown agent</span></li>
+          <li><a href="/start?agent=jane">/start?agent=jane</a><span>no loan officer given, default used</span></li>
+          <li><a href="/start">/start</a><span>no link at all</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card step">
+      <div class="num">3</div>
+      <div>
+        <h2>Short links and old addresses redirect</h2>
+        <p class="muted">A short link like <code>/jane</code> fits on a business card. Addresses from the previous site forward permanently to the new pages so search rankings carry over. Watch the address bar change.</p>
+        <ul class="routes">
+          <li><a href="/jane">/jane</a><span>short link for Jane</span></li>
+          <li><a href="/marco">/marco</a><span>short link for Marco</span></li>
+          <li><a href="/apply-now.html">/apply-now.html</a><span>old address, forwards to the new page</span></li>
+          <li><a href="/nonexistent">/nonexistent</a><span>a page that doesn't exist</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card step">
+      <div class="num">4</div>
+      <div>
+        <h2>Every submission and click is attributed</h2>
+        <p class="muted">The form carries two hidden fields that record which agent and loan officer the borrower came through. HubSpot stores them on the contact. Every button click and form submission also sends an event to Google Analytics with the same two names, so you can report conversions per agent.</p>
+        <p class="muted">This part is invisible on the page. Here is what HubSpot records for a submission from the first link above.</p>
+        <table class="kv">
+          <tr><th>Contact</th><td>the borrower's name and email</td></tr>
+          <tr><th>agent_slug</th><td>jane</td></tr>
+          <tr><th>lo_slug</th><td>mike</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>How it's built</h2>
+      <p class="muted">No framework and no build step. Plain HTML, CSS, and JavaScript. The list of agents and loan officers lives in one small data file, so adding a person is a one-line edit with no code changes. The same patterns carry straight into the full site.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 Acme Home Loans. Demo build on Cloudflare Pages.</p>
+    </div>
+  </footer>
+</body>
+</html>

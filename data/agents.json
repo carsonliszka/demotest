@@ -1,0 +1,13 @@
+{
+  "agents": {
+    "jane":  { "first": "Jane",  "full": "Jane Hartley",    "phone": "+15555550101" },
+    "marco": { "first": "Marco", "full": "Marco Reyes", "phone": "+15555550102" }
+  },
+  "los": {
+    "mike":  { "first": "Mike",  "full": "Mike Chen",  "phone": "+15555550201", "calendar": "https://calendar.app.google/EXAMPLE" },
+    "sarah": { "first": "Sarah", "full": "Sarah Kim",  "phone": "+15555550202", "calendar": "https://calendar.app.google/EXAMPLE2" }
+  },
+  "defaults": {
+    "lo": "mike"
+  }
+}
