@@ -82,14 +82,22 @@ fetch("/data/agents.json")
     const hrefs = { sms: "sms:" + lo.phone, tel: "tel:" + lo.phone, calendar: lo.calendar };
     document.querySelectorAll("[data-lo-href]").forEach(a => { a.href = hrefs[a.dataset.loHref]; });
   })
-  .finally(loadHubSpot);
+  .finally(loadThirdParty);
 
-// the embed loads after the headline is final so its script chain
-// doesn't compete with the first paint on slow connections
-function loadHubSpot() {
+// gtag.js and the hubspot embed load after the headline is final so they
+// don't compete with the first paint on slow connections. the inline gtag()
+// queue in the head keeps early events and the config; gtag.js replays them.
+function loadThirdParty() {
+  const gaId = (window.dataLayer || []).map(a => [...a]).find(a => a[0] === "config")?.[1];
+  if (gaId) addScript("https://www.googletagmanager.com/gtag/js?id=" + gaId);
+
   const frame = document.querySelector(".hs-form-frame[data-src]");
-  if (!frame) return;
+  if (frame) addScript(frame.dataset.src);
+}
+
+function addScript(src) {
   const s = document.createElement("script");
-  s.src = frame.dataset.src;
+  s.src = src;
+  s.async = true;
   document.body.appendChild(s);
 }
